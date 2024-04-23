@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Looping YouTube Video</title>
+    <style>
+        /* This sets the video to be full screen */
+        .fullscreen-bg {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: -100;
+        }
+
+        .fullscreen-bg video {
+            /* Ensure the video is stretched to cover the whole screen */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+<div class="fullscreen-bg">
+    <iframe 
+        width="100%" height="100%" 
+        src="https://www.youtube.com/embed/VEqY_Sv2ezc?si=n0-ss6eTfonZfOJZ?autoplay=1&loop=1&playlist=VEqY_Sv2ezc?si=n0-ss6eTfonZfOJZ&controls=0&showinfo=0&modestbranding=1"
+        frameborder="0" 
+        allow="autoplay; encrypted-media" 
+        allowfullscreen>
+    </iframe>
+</div>
+
+<script>
+    // This script could be expanded to add more interactivity or control features.
+</script>
+
+</body>
+</html>
