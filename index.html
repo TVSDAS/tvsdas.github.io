@@ -1,39 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Looping YouTube Video</title>
-    <style>
-        /* This sets the video to be full screen */
-        .fullscreen-bg {
-            position: fixed;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            overflow: hidden;
-            z-index: -100;
-        }
-
-        .fullscreen-bg iframe {
-            /* Ensure the video is stretched to cover the whole screen */
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Click to Play Video</title>
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        background-color: #000;
+    }
+    .fullscreen-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+        z-index: -100;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .play-button {
+        cursor: pointer;
+        width: 100px;
+        height: 100px;
+        background: rgba(255, 255, 255, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        color: black;
+        border-radius: 50%;
+    }
+</style>
 </head>
 <body>
 
-<div class="fullscreen-bg">
-    <iframe 
-        src="https://www.youtube.com/embed/VEqY_Sv2ezc?autoplay=1&loop=1&playlist=VEqY_Sv2ezc&controls=0&showinfo=0&modestbranding=1&mute=1"
-        frameborder="0" 
-        allow="autoplay; encrypted-media" 
-        allowfullscreen>
-    </iframe>
+<div class="fullscreen-bg" id="videoContainer">
+    <div class="play-button">Play</div>
 </div>
+
+<script>
+    const videoContainer = document.getElementById('videoContainer');
+    videoContainer.addEventListener('click', function () {
+        videoContainer.innerHTML = '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/VEqY_Sv2ezc?autoplay=1&loop=1&playlist=VEqY_Sv2ezc&rel=0&controls=1&showinfo=0&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+    });
+</script>
 
 </body>
 </html>
