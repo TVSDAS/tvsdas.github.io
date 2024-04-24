@@ -19,36 +19,6 @@
 </style>
 </head>
 <body>
-<div id="vimeo-player"></div>
-
-<script>
-    function loadVimeoPlayerAPI(callback) {
-        var script = document.createElement('script');
-        script.onload = callback;
-        script.src = 'https://player.vimeo.com/api/player.js';
-        document.head.appendChild(script);
-    }
-
-    function initializePlayer() {
-        var options = {
-            id: 938761636,
-            loop: true,
-            autoplay: true,
-            muted: false,
-            controls: false,
-            byline: false,
-            title: false
-        };
-
-        var player = new Vimeo.Player('vimeo-player', options);
-
-        player.play().then(function() {
-            player.setVolume(1); // Set volume to maximum
-            player.setFullscreen(true);
-        });
-    }
-
-    loadVimeoPlayerAPI(initializePlayer);
-</script>
+<iframe src="https://player.vimeo.com/video/938761636?autoplay=1&loop=1&title=0&byline=0&portrait=0" frameborder="0" allowfullscreen></iframe>
 </body>
 </html>
