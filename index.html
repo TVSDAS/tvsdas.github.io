@@ -21,9 +21,15 @@
 <body>
 <div id="vimeo-player"></div>
 
-<script src="https://player.vimeo.com/api/player.js"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    function loadVimeoPlayerAPI(callback) {
+        var script = document.createElement('script');
+        script.onload = callback;
+        script.src = 'https://player.vimeo.com/api/player.js';
+        document.head.appendChild(script);
+    }
+
+    function initializePlayer() {
         var options = {
             id: 938761636,
             loop: true,
@@ -40,7 +46,9 @@
             player.setVolume(1); // Set volume to maximum
             player.setFullscreen(true);
         });
-    });
+    }
+
+    loadVimeoPlayerAPI(initializePlayer);
 </script>
 </body>
 </html>
