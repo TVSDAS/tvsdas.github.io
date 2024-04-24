@@ -19,18 +19,26 @@
 </style>
 </head>
 <body>
-<iframe id="vimeo-player" src="https://player.vimeo.com/video/938761636?autoplay=1&loop=1&title=0&byline=0&portrait=0&api=1" frameborder="0" allowfullscreen></iframe>
+<iframe id="vimeo-player" src="https://player.vimeo.com/video/938761636?autoplay=1&loop=1&title=0&byline=0&portrait=0" frameborder="0" allowfullscreen></iframe>
 
-<script src="https://player.vimeo.com/api/player.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var iframe = document.getElementById('vimeo-player');
         var player = new Vimeo.Player(iframe);
 
         player.on('play', function() {
-            player.setVolume(1); // Set volume to maximum
             player.setFullscreen(true);
         });
+
+        // Simulate a click to start video playback
+        setTimeout(function() {
+            var playPromise = iframe.contentWindow.postMessage(JSON.stringify({ method: 'play' }), '*');
+            if (playPromise !== undefined && playPromise.catch !== undefined) {
+                playPromise.catch(function(error) {
+                    console.error('Failed to start video playback:', error);
+                });
+            }
+        }, 1000); // Delay for 1 second before simulating click
     });
 </script>
 </body>
