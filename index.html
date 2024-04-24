@@ -19,6 +19,23 @@
 </style>
 </head>
 <body>
-<iframe src="https://player.vimeo.com/video/938761636?autoplay=1&loop=1&title=0&byline=0&portrait=0" frameborder="0" allowfullscreen autoplay></iframe>
+<div id="player"></div>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+    var options = {
+        id: 938761636,
+        autoplay: true,
+        loop: true,
+        muted: true,
+        playsinline: false
+    };
+
+    var player = new Vimeo.Player('player', options);
+
+    player.on('play', function() {
+        player.requestFullscreen();
+    });
+</script>
 </body>
 </html>
